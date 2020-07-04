@@ -56,6 +56,30 @@ namespace QuantityMeasurements
             }
         }
 
+        public static double ConvertToKilos(double value, string unit)
+        {
+            try
+            {
+                switch (unit.ToLower())
+                {
+                    case null:
+                        throw new CustomException(CustomException.TypeOfException.NULL_POINTER_EXCEPTION);
+                    case "kg":
+                        return value;
+                    case "grams":
+                        return value /1000;
+                    case "tones":
+                        return value*1000;
+                    default:
+                        throw new CustomException(CustomException.TypeOfException.CHECK_TYPE_OF_VALUE);
+                }
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
+        }
+
         public static bool Addition(double value_1, double value_2, double expected_value)
         {
             double result = value_1 + value_2;           
