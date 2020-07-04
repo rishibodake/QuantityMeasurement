@@ -98,6 +98,13 @@ namespace QuantityMeasurementsTests
             Assert.IsTrue(value_1.Equals(value_1));
 
         }
+        [Test]
+        public void Provided_Improper_Inches_Type_Object_Should_Return_False()
+        {
+            Inches value_1 = new Inches();
+            object value_2 = new object();
+            Assert.IsFalse(value_1.Equals(value_2));
+        }        
 
     }
 }
