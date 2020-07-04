@@ -2,7 +2,7 @@
 {
     public class Compare
     {
-        public bool Check(int feets, int inches)
+        public bool CompareFeetToInches(int feets, int inches)
         {
             if(inches/12 == feets)
             {

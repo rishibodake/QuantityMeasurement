@@ -16,7 +16,7 @@ namespace QuantityMeasurementsTests
         public void Provided_1Inche_And_12Feet_Should_Return_True()
         {
             
-            bool result = compare.Check(1,12);
+            bool result = compare.CompareFeetToInches(1,12);
             Assert.IsTrue(result);
         }
 
@@ -38,7 +38,7 @@ namespace QuantityMeasurementsTests
         [Test]
         public void Provided_0Feet_And_0Feet_Shuold_Return_True()
         {
-            bool check = compare.Check(0, 0);
+            bool check = compare.CompareFeetToInches(0, 0);
             Assert.IsTrue(check);
         }
 
