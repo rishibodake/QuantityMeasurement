@@ -21,7 +21,7 @@ namespace QuantityMeasurementsTests
         }
 
         [Test]
-        public void Provided_0Inche_And_0Feet_Should_Return_True()
+        public void Provided_0Feet_And_0Feet_Should_Return_True()
         {
             Feet value_1 = new  Feet(0.0);
             Feet value_2 = new Feet(0.0);
@@ -65,6 +65,14 @@ namespace QuantityMeasurementsTests
             value_1.feet = 4.6;
             Assert.IsTrue(value_1.Equals(value_1));
             
+        }
+
+        [Test]
+        public void Provided_0Inche_And_0Inche_Should_Return_True()
+        {
+            Inches value_1 = new Inches(0.0);
+            Inches value_2 = new Inches(0.0);
+            Assert.AreEqual(value_1, value_2);
         }
 
 
