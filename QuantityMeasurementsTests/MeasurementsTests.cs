@@ -89,8 +89,15 @@ namespace QuantityMeasurementsTests
             Inches value_2 = new Inches();
             Assert.IsFalse(value_1.Equals(value_2));
         }
+       
+        [Test]
+        public void Provided_Equal_Inch_Value_Shuold_Return_True()
+        {
+            Inches value_1 = new Inches();
+            value_1.inches = 4.6;
+            Assert.IsTrue(value_1.Equals(value_1));
 
-
+        }
 
     }
 }
