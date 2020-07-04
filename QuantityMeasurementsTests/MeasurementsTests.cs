@@ -236,5 +236,12 @@ namespace QuantityMeasurementsTests
             result = AllUnits.Addition(AllUnits.ConvertToLiters(1, "gallon"), AllUnits.ConvertToLiters(3.78, "litre"), AllUnits.ConvertToLiters(7.56, "litre"));
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void Provided_1Lire_And_1000mllitre_After_Additon_Should_Return_2litre()
+        {
+            result = AllUnits.Addition(AllUnits.ConvertToLiters(1, "litre"), AllUnits.ConvertToLiters(1000, "ml"), AllUnits.ConvertToLiters(2, "litre"));
+            Assert.IsTrue(result);
+        }
     }
 }
