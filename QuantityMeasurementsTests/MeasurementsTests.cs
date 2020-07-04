@@ -28,6 +28,13 @@ namespace QuantityMeasurementsTests
             Assert.AreEqual(value_1, value_2);
         }
 
+        [Test]
+        public void Provided_0Inch_And_NullValue_Shuold_Return_False()
+        {
+            Feet feet = new Feet();            
+            Assert.IsFalse(feet.Equals(null));
+        }
+
 
     }
 }
