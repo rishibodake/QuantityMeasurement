@@ -11,5 +11,10 @@
         {
             return inches / 12;
         }
+
+        public double YardsToInches(double yards)
+        {
+            return yards * 36;
+        }
     }
 }
