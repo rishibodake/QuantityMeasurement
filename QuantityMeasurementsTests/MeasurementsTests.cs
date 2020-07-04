@@ -142,5 +142,12 @@ namespace QuantityMeasurementsTests
             bool result = compare.CompareFeetToYards(convert.InchesToFeets(36.00), 1.0);
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void Provided_1Yard_And_3Feet_When_Compare_Should_Return_True()
+        {
+            bool result = compare.CompareFeetToYards(3.00, 1.00);
+            Assert.IsTrue(result);
+        }
     }
 }
