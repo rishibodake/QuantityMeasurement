@@ -104,7 +104,14 @@ namespace QuantityMeasurementsTests
             Inches value_1 = new Inches();
             object value_2 = new object();
             Assert.IsFalse(value_1.Equals(value_2));
-        }        
+        }      
+        
+        [Test]
+        public void Provided_3Feet_And_1Yard_After_Compare_Should_Return_True()
+        {
+            bool result = compare.CompareFeetToYards(3.0, 1.0);
+            Assert.IsTrue(result);
+        }
 
     }
 }
