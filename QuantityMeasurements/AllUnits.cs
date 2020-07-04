@@ -1,5 +1,6 @@
 ﻿
 
+using System;
 using System.Reflection.Metadata.Ecma335;
 
 namespace QuantityMeasurements
@@ -15,10 +16,12 @@ namespace QuantityMeasurements
                     case null:
                         throw new CustomException(CustomException.TypeOfException.NULL_POINTER_EXCEPTION);
                     case "feet":
-                        return value * 12;
+                        return Math.Round(value * 30.38);
                     case "yards":
-                        return value * 36;
+                        return Math.Round(value * 91.44);
                     case "inches":
+                        return Math.Round(value * 2.54);
+                    case "cm":
                         return value;
                     default:
                         throw new CustomException(CustomException.TypeOfException.CHECK_TYPE_OF_VALUE);
