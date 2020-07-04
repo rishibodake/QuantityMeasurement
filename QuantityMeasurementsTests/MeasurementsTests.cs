@@ -243,5 +243,15 @@ namespace QuantityMeasurementsTests
             result = AllUnits.Addition(AllUnits.ConvertToLiters(1, "litre"), AllUnits.ConvertToLiters(1000, "ml"), AllUnits.ConvertToLiters(2, "litre"));
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void Provided_1Kg_And_1000Grams_After_Compare_Shuould_Return_True()
+        {
+            if (AllUnits.ConvertToKilos(1, "kg") == AllUnits.ConvertToKilos(1000, "grams"))
+            {
+                result = true;
+            }
+            Assert.IsTrue(result);
+        }
     }
 }
