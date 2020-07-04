@@ -264,5 +264,12 @@ namespace QuantityMeasurementsTests
             }
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void Provided_1Tones_And_1000Grams_After_Additon_Should_Return_1001Kilo()
+        {
+            result = AllUnits.Addition(AllUnits.ConvertToKilos(1, "tones"), AllUnits.ConvertToKilos(1000, "grams"), AllUnits.ConvertToKilos(1001, "kg"));
+            Assert.IsTrue(result);
+        }
     }
 }
