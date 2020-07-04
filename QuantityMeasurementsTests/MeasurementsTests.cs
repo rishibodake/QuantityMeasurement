@@ -75,6 +75,13 @@ namespace QuantityMeasurementsTests
             Assert.IsTrue(value_1.inches.Equals(value_2.inches));
         }
 
+        [Test]
+        public void Provided_0Inch_And_NullValue_Shuold_Return_False()
+        {
+            Inches inch = new Inches();
+            Assert.IsFalse(inch.Equals(null));
+        }
+
 
     }
 }
