@@ -35,6 +35,13 @@ namespace QuantityMeasurementsTests
             Assert.IsFalse(feet.Equals(null));
         }
 
+        [Test]
+        public void Provided_0Inch_And_0Feet_Shuold_Return_True()
+        {
+            bool check = compare.Check(0, 0);
+            Assert.IsTrue(check);
+        }
+
 
     }
 }
