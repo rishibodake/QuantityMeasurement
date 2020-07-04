@@ -42,6 +42,14 @@ namespace QuantityMeasurementsTests
             Assert.IsTrue(check);
         }
 
+        [Test]
+        public void Reference_Check_Test_For_Feet()
+        {
+            Feet value_1 = new Feet();
+            Feet value_2 = new Feet();
+            Assert.IsFalse(value_1.Equals(value_2));
+        }
+
 
     }
 }
