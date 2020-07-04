@@ -169,5 +169,16 @@ namespace QuantityMeasurementsTests
             }
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void Provided_2Inch_And_5CM_When_Compare_Should_Return_True()
+        {
+            if (AllUnits.ConvertToInches(2, "inches") == AllUnits.ConvertToInches(5, "cm"))
+            {
+                result = true;
+            }
+            Assert.IsTrue(result);
+        }
+
     }
 }
