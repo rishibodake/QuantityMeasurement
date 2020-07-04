@@ -19,11 +19,10 @@ namespace QuantityMeasurements
 
         public override bool Equals(object obj)
         {
-            if (this == obj)
-                return true;
-            if(obj == null)
-                return false;
-            return true;                                
+            if (obj == null) return false;
+            if (!(obj == this)) return false;
+            if (!(obj.GetType() == this.GetType())) return false;
+            return (((Feet)obj).feet == this.feet);
         }
     }
 }
