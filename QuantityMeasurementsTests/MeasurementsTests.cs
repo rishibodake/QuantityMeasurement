@@ -82,6 +82,15 @@ namespace QuantityMeasurementsTests
             Assert.IsFalse(inch.Equals(null));
         }
 
+        [Test]
+        public void Reference_Check_Test_For_Inch()
+        {
+            Inches value_1 = new Inches();
+            Inches value_2 = new Inches();
+            Assert.IsFalse(value_1.Equals(value_2));
+        }
+
+
 
     }
 }
