@@ -58,6 +58,15 @@ namespace QuantityMeasurementsTests
             Assert.IsFalse(value_1.Equals(value_2));
         }
 
+        [Test]
+        public void Provided_Equal_Value_Shuold_Return_True()
+        {
+            Feet value_1 = new Feet();
+            value_1.feet = 4.6;
+            Assert.IsTrue(value_1.Equals(value_1));
+            
+        }
+
 
     }
 }
