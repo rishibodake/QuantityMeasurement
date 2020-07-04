@@ -253,5 +253,16 @@ namespace QuantityMeasurementsTests
             }
             Assert.IsTrue(result);
         }
+
+
+        [Test]
+        public void Provided_1Tones_And_1000Kilos_After_Compare_Shuould_Return_True()
+        {
+            if (AllUnits.ConvertToKilos(1, "tones") == AllUnits.ConvertToKilos(1000, "kg"))
+            {
+                result = true;
+            }
+            Assert.IsTrue(result);
+        }
     }
 }
