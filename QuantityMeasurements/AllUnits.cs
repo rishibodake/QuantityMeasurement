@@ -80,6 +80,28 @@ namespace QuantityMeasurements
             }
         }
 
+        public static double ConvertTemprature(double value, string unit)
+        {
+            try
+            {
+                switch (unit)
+                {
+                    case null:
+                        throw new CustomException(CustomException.TypeOfException.NULL_POINTER_EXCEPTION);
+                    case "F":
+                        return (value - 32) * 5 / 9;
+                    case "C":
+                        return value;
+                    default:
+                        throw new CustomException(CustomException.TypeOfException.CHECK_TYPE_OF_VALUE);
+                }
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
+        }
+
         public static bool Addition(double value_1, double value_2, double expected_value)
         {
             double result = value_1 + value_2;           

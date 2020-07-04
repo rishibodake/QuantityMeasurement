@@ -275,7 +275,7 @@ namespace QuantityMeasurementsTests
         [Test]
         public void Provided_212F_And_100C_After_Compare_Shuould_Return_True()
         {
-            if (AllUnits.ConvertTemprature(212, "F") == AllUnits.ConvertToKilos(100, "C"))
+            if (AllUnits.ConvertTemprature(212, "F") == AllUnits.ConvertTemprature(100, "C"))
             {
                 result = true;
             }
