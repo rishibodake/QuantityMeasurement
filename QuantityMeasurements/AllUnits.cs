@@ -7,7 +7,7 @@ namespace QuantityMeasurements
 {
     public static class AllUnits
     {
-       public static double ConvertToInches(double value,string unit)
+       public static double ConvertToCentimeter(double value,string unit)
         {
             try
             {
@@ -32,5 +32,7 @@ namespace QuantityMeasurements
                 throw new CustomException(CustomException.TypeOfException.NULL_POINTER_EXCEPTION);
             }
         } 
+
+       
     }
 }

@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using QuantityMeasurements;
+using System.Xml.Serialization;
 
 namespace QuantityMeasurementsTests
 {
@@ -16,7 +17,7 @@ namespace QuantityMeasurementsTests
         public void Provided_12Inche_And_1Feet_Should_Return_True()
         {
            
-            if (AllUnits.ConvertToInches(12, "inches") == AllUnits.ConvertToInches(1, "feet"))
+            if (AllUnits.ConvertToCentimeter(12, "inches") == AllUnits.ConvertToCentimeter(1, "feet"))
             {
                 result = true;
             }
@@ -42,7 +43,7 @@ namespace QuantityMeasurementsTests
         [Test]
         public void Provided_0Feet_And_0Feet_Shuold_Return_True()
         {           
-            if (AllUnits.ConvertToInches(0, "feet") == AllUnits.ConvertToInches(0, "feet"))
+            if (AllUnits.ConvertToCentimeter(0, "feet") == AllUnits.ConvertToCentimeter(0, "feet"))
             {
                 result = true;
             }
@@ -114,7 +115,7 @@ namespace QuantityMeasurementsTests
         [Test]
         public void Provided_3Feet_And_1Yard_After_Compare_Should_Return_True()
         {          
-            if(AllUnits.ConvertToInches(3,"feet") == AllUnits.ConvertToInches(1, "yards"))
+            if(AllUnits.ConvertToCentimeter(3,"feet") == AllUnits.ConvertToCentimeter(1, "yards"))
             {
                 result = true;
             }
@@ -124,7 +125,7 @@ namespace QuantityMeasurementsTests
         [Test]
         public void Provided_1Feet_And_1Yard_After_Compare_Should_Return_False()
         {          
-            if(AllUnits.ConvertToInches(1,"FEET") == AllUnits.ConvertToInches(1, "YARDS"))
+            if(AllUnits.ConvertToCentimeter(1,"FEET") == AllUnits.ConvertToCentimeter(1, "YARDS"))
             {
                 result = true;
             }
@@ -134,7 +135,7 @@ namespace QuantityMeasurementsTests
         [Test]
         public void Provided_1Inche_And_1Yard_When_Compare_Should_Return_False()
         {            
-            if (AllUnits.ConvertToInches(1,"inches") == AllUnits.ConvertToInches(1,"YARDS"))
+            if (AllUnits.ConvertToCentimeter(1,"inches") == AllUnits.ConvertToCentimeter(1,"YARDS"))
             {
                 result = true;
             }
@@ -144,7 +145,7 @@ namespace QuantityMeasurementsTests
         [Test]
         public void Provided_1Yard_And_36Inches_When_Compare_Should_Return_True()
         {        
-            if (AllUnits.ConvertToInches(1, "yards") == AllUnits.ConvertToInches(36, "inches")) {
+            if (AllUnits.ConvertToCentimeter(1, "yards") == AllUnits.ConvertToCentimeter(36, "inches")) {
                 result = true;
             }           
             Assert.IsTrue(result);                   
@@ -153,7 +154,7 @@ namespace QuantityMeasurementsTests
         [Test]
         public void Provided_36Inches_And_1Yard_When_Compare_Should_Return_True()
         {           
-            if (AllUnits.ConvertToInches(36, "inches") == AllUnits.ConvertToInches(1, "yards"))
+            if (AllUnits.ConvertToCentimeter(36, "inches") == AllUnits.ConvertToCentimeter(1, "yards"))
             {
                 result = true;
             }
@@ -163,7 +164,7 @@ namespace QuantityMeasurementsTests
         [Test]
         public void Provided_1Yard_And_3Feet_When_Compare_Should_Return_True()
         {            
-            if (AllUnits.ConvertToInches(1, "yards") == AllUnits.ConvertToInches(3, "feet"))
+            if (AllUnits.ConvertToCentimeter(1, "yards") == AllUnits.ConvertToCentimeter(3, "feet"))
             {
                 result = true;
             }
@@ -173,10 +174,17 @@ namespace QuantityMeasurementsTests
         [Test]
         public void Provided_2Inch_And_5CM_When_Compare_Should_Return_True()
         {
-            if (AllUnits.ConvertToInches(2, "inches") == AllUnits.ConvertToInches(5, "cm"))
+            if (AllUnits.ConvertToCentimeter(2, "inches") == AllUnits.ConvertToCentimeter(5, "cm"))
             {
                 result = true;
             }
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void Provided_2Inch_And_2Inch_After_Additon_Should_Return_4Inch()
+        {
+            result = AllUnits.Addition(AllUnits.ConvertToCentimeter(2, "inches"), AllUnits.ConvertToCentimeter(2, "inches"), AllUnits.ConvertToCentimeter(4, "inches"));
             Assert.IsTrue(result);
         }
 
