@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using QuantityMeasurements;
 
 namespace QuantityMeasurementsTests
 {
@@ -22,8 +23,8 @@ namespace QuantityMeasurementsTests
         [Test]
         public void Provided_0Inche_And_0Feet_Should_Return_True()
         {
-            Feet value_1 = Feet(0.0);
-            Feet value_2 = Feet(0.0);
+            Feet value_1 = new  Feet(0.0);
+            Feet value_2 = new Feet(0.0);
             Assert.AreEqual(value_1, value_2);
         }
 
