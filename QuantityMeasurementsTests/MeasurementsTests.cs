@@ -113,5 +113,13 @@ namespace QuantityMeasurementsTests
             Assert.IsTrue(result);
         }
 
+        [Test]
+        public void Provided_1Feet_And_1Yard_After_Compare_Should_Return_False()
+        {
+            bool result = compare.CompareFeetToYards(1.0, 1.0);
+            Assert.IsFalse(result);
+
+        }
+
     }
 }
