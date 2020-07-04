@@ -201,5 +201,12 @@ namespace QuantityMeasurementsTests
             result = AllUnits.Addition(AllUnits.ConvertToInches(1, "feet"), AllUnits.ConvertToInches(1, "feet"), AllUnits.ConvertToInches(24, "inches"));
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void Provided_2Inch_And_2n5CM_After_Additon_Should_Return_3Inch()
+        {
+            result = AllUnits.Addition(AllUnits.ConvertToInches(2, "inches"), AllUnits.ConvertToInches(2.5, "cm"), AllUnits.ConvertToInches(3, "inches"));
+            Assert.IsTrue(result);
+        }
     }
 }
