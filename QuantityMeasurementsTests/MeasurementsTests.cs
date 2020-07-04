@@ -218,5 +218,15 @@ namespace QuantityMeasurementsTests
             }
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void Provided_1litre_And_100MiliLiter_After_Compare_Shuould_Return_True()
+        {
+            if (AllUnits.ConvertToLiters(1, "litre") == AllUnits.ConvertToLiters(1000, "ml"))
+            {
+                result = true;
+            }
+            Assert.IsTrue(result);
+        }
     }
 }
