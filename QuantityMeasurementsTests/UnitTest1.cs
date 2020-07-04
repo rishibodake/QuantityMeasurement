@@ -7,12 +7,15 @@ namespace QuantityMeasurementsTests
         [SetUp]
         public void Setup()
         {
+
         }
 
         [Test]
         public void Test1()
         {
-            Assert.Pass();
+            Compare compare = new Compare();
+            bool result = compare.Check(1, 12);
+            Assert.IsTrue(result);
         }
     }
 }
