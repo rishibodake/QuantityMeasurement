@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using QuantityMeasurements;
+using System;
 using System.Xml.Serialization;
 
 namespace QuantityMeasurementsTests
@@ -226,6 +227,13 @@ namespace QuantityMeasurementsTests
             {
                 result = true;
             }
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void Provided_1Gallon_And_3o78_litre_After_Additon_Should_Return_7o57litre()
+        {
+            result = AllUnits.Addition(AllUnits.ConvertToLiters(1, "gallon"), AllUnits.ConvertToLiters(3.78, "litre"), AllUnits.ConvertToLiters(7.56, "litre"));
             Assert.IsTrue(result);
         }
     }
