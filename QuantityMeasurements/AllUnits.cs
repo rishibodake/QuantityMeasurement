@@ -7,7 +7,7 @@ namespace QuantityMeasurements
 {
     public static class AllUnits
     {
-       public static double ConvertToCentimeter(double value,string unit)
+       public static double ConvertToInches(double value,string unit)
         {
             try
             {
@@ -16,18 +16,18 @@ namespace QuantityMeasurements
                     case null:
                         throw new CustomException(CustomException.TypeOfException.NULL_POINTER_EXCEPTION);
                     case "feet":
-                        return Math.Round(value * 30.38);
+                        return value * 12;
                     case "yards":
-                        return Math.Round(value * 91.44);
-                    case "inches":
-                        return Math.Round(value * 2.54);
+                        return value * 36;
                     case "cm":
+                        return value/2.5;
+                    case "inches":
                         return value;
                     default:
                         throw new CustomException(CustomException.TypeOfException.CHECK_TYPE_OF_VALUE);
                 }
             }
-            catch (CustomException e)
+            catch (CustomException)
             {
                 throw new CustomException(CustomException.TypeOfException.NULL_POINTER_EXCEPTION);
             }
