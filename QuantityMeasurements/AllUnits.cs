@@ -32,8 +32,7 @@ namespace QuantityMeasurements
                 throw new Exception();
             }
         }
-
-        public static double ConvertToMili(double value,string unit)
+        public static double ConvertToLiters(double value, string unit)
         {
             try
             {
@@ -44,12 +43,12 @@ namespace QuantityMeasurements
                     case "litre":
                         return value;
                     case "gallon":
-                        return value * 3.785;
+                        return value * 3.78;
                     case "ml":
                         return value / 1000;
                     default:
                         throw new CustomException(CustomException.TypeOfException.CHECK_TYPE_OF_VALUE);
-                }                
+                }
             }
             catch (Exception)
             {

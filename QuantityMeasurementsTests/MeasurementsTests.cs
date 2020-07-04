@@ -212,7 +212,7 @@ namespace QuantityMeasurementsTests
         [Test]
         public void Provided_1Gallon_And_3point78_Liter_After_Compare_Shuould_Return_True()
         {
-            if (AllUnits.ConvertToLiters(1, "gallon") == AllUnits.ConvertToLiters(3.78, "liters"))
+            if (AllUnits.ConvertToLiters(1, "gallon") == AllUnits.ConvertToLiters(3.78, "litre"))
             {
                 result = true;
             }
