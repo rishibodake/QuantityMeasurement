@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using QuantityMeasurements;
+using System.Xml.Serialization;
 
 namespace QuantityMeasurementsTests
 {
@@ -180,5 +181,42 @@ namespace QuantityMeasurementsTests
             Assert.IsTrue(result);
         }
 
+        [Test]
+        public void Provided_2Inch_And_2Inch_After_Additon_Should_Return_4Inch()
+        {
+            result = AllUnits.Addition(AllUnits.ConvertToInches(2, "inches"), AllUnits.ConvertToInches(2, "inches"), AllUnits.ConvertToInches(4, "inches"));
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void Provided_1Feet_And_2Inch_After_Additon_Should_Return_14Inch()
+        {
+            result = AllUnits.Addition(AllUnits.ConvertToInches(1, "feet"), AllUnits.ConvertToInches(2, "inches"), AllUnits.ConvertToInches(14, "inches"));
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void Provided_1Feet_And_1Feet_After_Additon_Should_Return_24Inch()
+        {
+            result = AllUnits.Addition(AllUnits.ConvertToInches(1, "feet"), AllUnits.ConvertToInches(1, "feet"), AllUnits.ConvertToInches(24, "inches"));
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void Provided_2Inch_And_2n5CM_After_Additon_Should_Return_3Inch()
+        {
+            result = AllUnits.Addition(AllUnits.ConvertToInches(2, "inches"), AllUnits.ConvertToInches(2.5, "cm"), AllUnits.ConvertToInches(3, "inches"));
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void Provided_1Gallon_And_3point78_Liter_After_Compare_Shuould_Return_True()
+        {
+            if (AllUnits.ConvertToLiters(1, "gallon") == AllUnits.ConvertToLiters(3.78, "liters"))
+            {
+                result = true;
+            }
+            Assert.IsTrue(result);
+        }
     }
 }

@@ -27,9 +27,33 @@ namespace QuantityMeasurements
                         throw new CustomException(CustomException.TypeOfException.CHECK_TYPE_OF_VALUE);
                 }
             }
-            catch (CustomException)
+            catch (Exception)
             {
-                throw new CustomException(CustomException.TypeOfException.NULL_POINTER_EXCEPTION);
+                throw new Exception();
+            }
+        }
+
+        public static double ConvertToMili(double value,string unit)
+        {
+            try
+            {
+                switch (unit.ToLower())
+                {
+                    case null:
+                        throw new CustomException(CustomException.TypeOfException.NULL_POINTER_EXCEPTION);
+                    case "litre":
+                        return value;
+                    case "gallon":
+                        return value * 3.785;
+                    case "ml":
+                        return value / 1000;
+                    default:
+                        throw new CustomException(CustomException.TypeOfException.CHECK_TYPE_OF_VALUE);
+                }                
+            }
+            catch (Exception)
+            {
+                throw new Exception();
             }
         }
 
