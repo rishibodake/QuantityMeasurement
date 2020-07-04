@@ -195,5 +195,11 @@ namespace QuantityMeasurementsTests
             Assert.IsTrue(result);
         }
 
+        [Test]
+        public void Provided_1Feet_And_1Feet_After_Additon_Should_Return_24Inch()
+        {
+            result = AllUnits.Addition(AllUnits.ConvertToInches(1, "feet"), AllUnits.ConvertToInches(1, "feet"), AllUnits.ConvertToInches(24, "inches"));
+            Assert.IsTrue(result);
+        }
     }
 }
