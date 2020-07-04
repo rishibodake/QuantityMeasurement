@@ -17,7 +17,9 @@ namespace QuantityMeasurements
                     case "feet":
                         return value * 12;
                     case "yards":
-                        return value * 39;
+                        return value * 36;
+                    case "inches":
+                        return value;
                     default:
                         throw new CustomException(CustomException.TypeOfException.CHECK_TYPE_OF_VALUE);
                 }

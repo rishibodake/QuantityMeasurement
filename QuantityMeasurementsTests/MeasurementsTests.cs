@@ -5,20 +5,22 @@ namespace QuantityMeasurementsTests
 {
     public class Tests
     {
-        Compare compare;
-        Conversion convert;
+        bool result = false;
         [SetUp]
         public void Setup()
         {
-            compare = new Compare();
-            convert = new Conversion();
+            
         }
 
         [Test]
-        public void Provided_1Inche_And_12Feet_Should_Return_True()
+        public void Provided_12Inche_And_1Feet_Should_Return_True()
         {
-            
-            bool result = compare.CompareFeetToInches(1,12);
+           
+            if (AllUnits.ConvertToInches(12, "inches") == AllUnits.ConvertToInches(1, "feet"))
+            {
+                result = true;
+            }
+
             Assert.IsTrue(result);
         }
 
@@ -40,8 +42,12 @@ namespace QuantityMeasurementsTests
         [Test]
         public void Provided_0Feet_And_0Feet_Shuold_Return_True()
         {
-            bool check = compare.CompareFeetToInches(0, 0);
-            Assert.IsTrue(check);
+            
+            if (AllUnits.ConvertToInches(0, "feet") == AllUnits.ConvertToInches(0, "feet"))
+            {
+                result = true;
+            }
+            Assert.IsTrue(result);
         }
 
         [Test]
@@ -111,42 +117,65 @@ namespace QuantityMeasurementsTests
         [Test]
         public void Provided_3Feet_And_1Yard_After_Compare_Should_Return_True()
         {
-            bool result = compare.CompareFeetToYards(3.0, 1.0);
+            
+            if(AllUnits.ConvertToInches(3,"feet") == AllUnits.ConvertToInches(1, "yards"))
+            {
+                result = true;
+            }
             Assert.IsTrue(result);
         }
 
         [Test]
         public void Provided_1Feet_And_1Yard_After_Compare_Should_Return_False()
         {
-            bool result = compare.CompareFeetToYards(1.0, 1.0);
+            
+            if(AllUnits.ConvertToInches(1,"FEET") == AllUnits.ConvertToInches(1, "YARDS"))
+            {
+                result = true;
+            }
             Assert.IsFalse(result);
         }
 
         [Test]
         public void Provided_1Inche_And_1Yard_When_Compare_Should_Return_False()
         {
-            bool result = compare.CompareFeetToYards(convert.InchesToFeets(1.0), 1.0);
+            
+            if (AllUnits.ConvertToInches(1, "inches") == AllUnits.ConvertToInches(1, "YARDS"))
+            {
+                result = true;
+            }
             Assert.IsFalse(result);
         }
 
         [Test]
         public void Provided_1Yard_And_36Inches_When_Compare_Should_Return_True()
         {
-            bool result = compare.CompareFeetToYards(convert.InchesToFeets(36.00), 1.0);
-            Assert.IsTrue(result);
+         
+            if (AllUnits.ConvertToInches(1, "yards") == AllUnits.ConvertToInches(36, "inches")) {
+                result = true;
+            }           
+            Assert.IsTrue(result);                   
         }
 
         [Test]
         public void Provided_36Inches_And_1Yard_When_Compare_Should_Return_True()
         {
-            bool result = compare.CompareFeetToYards(convert.InchesToFeets(36.00), 1.0);
+            
+            if (AllUnits.ConvertToInches(36, "inches") == AllUnits.ConvertToInches(1, "yards"))
+            {
+                result = true;
+            }
             Assert.IsTrue(result);
         }
 
         [Test]
         public void Provided_1Yard_And_3Feet_When_Compare_Should_Return_True()
         {
-            bool result = compare.CompareFeetToYards(3.00, 1.00);
+            
+            if (AllUnits.ConvertToInches(1, "yards") == AllUnits.ConvertToInches(3, "feet"))
+            {
+                result = true;
+            }
             Assert.IsTrue(result);
         }
     }
