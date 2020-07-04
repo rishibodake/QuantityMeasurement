@@ -10,5 +10,13 @@
             }
             return false;
         }
+        public bool CompareFeetToYards(double feet, double yards)
+        {
+            if(feet/3 == yards)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
