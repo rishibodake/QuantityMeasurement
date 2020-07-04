@@ -6,10 +6,12 @@ namespace QuantityMeasurementsTests
     public class Tests
     {
         Compare compare;
+        Conversion convert;
         [SetUp]
         public void Setup()
         {
             compare = new Compare();
+            convert = new Conversion();
         }
 
         [Test]
@@ -118,7 +120,13 @@ namespace QuantityMeasurementsTests
         {
             bool result = compare.CompareFeetToYards(1.0, 1.0);
             Assert.IsFalse(result);
+        }
 
+        [Test]
+        public void Provided_1Inche_And_1Yard_When_Compare_Should_Return_False()
+        {
+            bool result = compare.CompareFeetToYards(convert.InchesToFeets(1.0), 1.0);
+            Assert.IsFalse(result);
         }
 
     }
