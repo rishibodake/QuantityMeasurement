@@ -4,7 +4,7 @@
     {
         public bool Check(int feets, int inches)
         {
-            if(inches/feets == inches)
+            if(inches/12 == feets)
             {
                 return true;
             }
