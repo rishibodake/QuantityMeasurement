@@ -50,6 +50,14 @@ namespace QuantityMeasurementsTests
             Assert.IsFalse(value_1.Equals(value_2));
         }
 
+        [Test]
+        public void Provided_Improper_Type_Object_Should_Return_False()
+        {
+            Feet value_1 = new Feet();
+            object value_2 = new object();
+            Assert.IsFalse(value_1.Equals(value_2));
+        }
+
 
     }
 }
