@@ -6,7 +6,7 @@ namespace QuantityMeasurements
     {
         public enum TypeOfException
         {
-            NULL_POINTER_EXCEPTION,CHECK_TYPE_OF_VALUE
+            NULL_POINTER_EXCEPTION,CHECK_TYPE_OF_VALUE, INVALID_TYPE_OF_MEASURE_SYSTEM
         }
         public TypeOfException typeOfException;
 
