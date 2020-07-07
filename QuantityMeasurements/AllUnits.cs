@@ -2,104 +2,80 @@
 
 using System;
 using System.Reflection.Metadata.Ecma335;
+using static QuantityMeasurements.Units;
 
 namespace QuantityMeasurements
 {
     public static class AllUnits
     {
-       public static double ConvertToInches(double value,string unit)
+       public static double ConvertToInches(double value, Length unit)
         {
-            try
-            {
-                switch (unit.ToLower())
+            
+                switch (unit)
                 {
-                    case null:
-                        throw new CustomException(CustomException.TypeOfException.NULL_POINTER_EXCEPTION);
-                    case "feet":
+                    case  Length.FEET:
                         return value * 12;
-                    case "yards":
+                    case Length.YARDS:
                         return value * 36;
-                    case "cm":
+                    case Length.CM:
                         return value/2.5;
-                    case "inches":
+                    case Length.INCHES:
                         return value;
                     default:
                         throw new CustomException(CustomException.TypeOfException.CHECK_TYPE_OF_VALUE);
                 }
-            }
-            catch (Exception)
-            {
-                throw new Exception();
-            }
+            
+           
         }
-        public static double ConvertToLiters(double value, string unit)
+        public static double ConvertToLiters(double value, Volume unit)
         {
-            try
-            {
-                switch (unit.ToLower())
+            
+                switch (unit)
                 {
-                    case null:
-                        throw new CustomException(CustomException.TypeOfException.NULL_POINTER_EXCEPTION);
-                    case "litre":
+                   
+                    case Units.Volume.LITRE:
                         return value;
-                    case "gallon":
+                    case Units.Volume.GALLON:
                         return value * 3.78;
-                    case "ml":
+                    case Units.Volume.ML:
                         return value / 1000;
                     default:
                         throw new CustomException(CustomException.TypeOfException.CHECK_TYPE_OF_VALUE);
                 }
-            }
-            catch (Exception)
-            {
-                throw new Exception();
-            }
+            
+           
         }
 
-        public static double ConvertToKilos(double value, string unit)
+        public static double ConvertToKilos(double value, Weight unit )
         {
-            try
-            {
-                switch (unit.ToLower())
+           
+                switch (unit)
                 {
-                    case null:
-                        throw new CustomException(CustomException.TypeOfException.NULL_POINTER_EXCEPTION);
-                    case "kg":
+                    case Units.Weight.KILO:
                         return value;
-                    case "grams":
+                    case Units.Weight.GRAM:
                         return value /1000;
-                    case "tones":
+                    case Units.Weight.TONNE:
                         return value*1000;
                     default:
                         throw new CustomException(CustomException.TypeOfException.CHECK_TYPE_OF_VALUE);
                 }
-            }
-            catch (Exception)
-            {
-                throw new Exception();
-            }
+            
         }
 
-        public static double ConvertTemprature(double value, string unit)
+        public static double ConvertTemprature(double value, Temprature unit)
         {
-            try
-            {
+           
                 switch (unit)
-                {
-                    case null:
-                        throw new CustomException(CustomException.TypeOfException.NULL_POINTER_EXCEPTION);
-                    case "F":
+                {                   
+                    case Units.Temprature.FAHRENHEIT:
                         return (value - 32) * 5 / 9;
-                    case "C":
+                    case Units.Temprature.CELSIUS:
                         return value;
                     default:
                         throw new CustomException(CustomException.TypeOfException.CHECK_TYPE_OF_VALUE);
                 }
-            }
-            catch (Exception)
-            {
-                throw new Exception();
-            }
+            
         }
 
         public static bool Addition(double value_1, double value_2, double expected_value)
