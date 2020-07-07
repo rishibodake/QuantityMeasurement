@@ -1,9 +1,8 @@
 using NUnit.Framework;
 using QuantityMeasurements;
-using System;
-using System.Xml.Serialization;
 using static QuantityMeasurements.Units;
 using static QuantityMeasurements.Convertor;
+using static QuantityMeasurements.AdditionOfUnits;
 using static QuantityMeasurements.Units.Length;
 using static QuantityMeasurements.Units.Weight;
 using static QuantityMeasurements.Units.Volume;
@@ -21,18 +20,14 @@ namespace QuantityMeasurementsTests
         }
 
         [Test]
-        public void Provided_12Inche_And_1Feet_Should_Return_True()
-        {
-           
-            if (UnitConvertor<Length>(12,INCHES) == UnitConvertor<Length>(1,FEET))
-            {
-                result = true;
-            }
+        public void Provided_TwelveInche_And_OneFeet_Should_Return_True()
+        {           
+            result = UnitConvertor<Length>(12, INCHES) == UnitConvertor<Length>(1, FEET);
             Assert.IsTrue(result);
         }
 
         [Test]
-        public void Provided_0Feet_And_0Feet_Should_Return_True()
+        public void Provided_ZeroFeet_And_ZeroFeet_Should_Return_True()
         {
             Feet first_value = new  Feet(0.0);
             Feet second_value = new Feet(0.0);            
@@ -40,52 +35,53 @@ namespace QuantityMeasurementsTests
         }
 
         [Test]
-        public void Provided_0Feet_And_NullValue_Shuold_Return_False()
+        public void Provided_ZeroFeet_And_NullValue_Shuold_Return_False()
         {
             Feet feet = new Feet();            
             Assert.IsFalse(feet.Equals(null));
         }
 
         [Test]
-        public void Provided_0Feet_And_0Feet_Shuold_Return_True()
+        public void Provided_ZeroFeet_And_ZeroFeet_Shuold_Return_True()
         {           
-            if (UnitConvertor<Length>(0,FEET) == UnitConvertor<Length>(0,FEET))
-            {
-                result = true;
-            }
+          //  if (UnitConvertor<Length>(0,FEET) == UnitConvertor<Length>(0,FEET))
+            //{
+              //  result = true;
+            //}
+            result = UnitConvertor<Length>(0, FEET) == UnitConvertor<Length>(0, FEET);
             Assert.IsTrue(result);
         }
 
         [Test]
         public void Reference_Check_Test_For_Feet()
         {
-            Feet value_1 = new Feet();
-            Feet value_2 = new Feet();
-            Assert.IsFalse(value_1.Equals(value_2));
+            Feet first_value = new Feet();
+            Feet second_value = new Feet();
+            Assert.IsFalse(first_value.Equals(second_value));
         }
 
         [Test]
         public void Provided_Improper_Type_Object_Should_Return_False()
         {
-            Feet value_1 = new Feet();
-            object value_2 = new object();
-            Assert.IsFalse(value_1.Equals(value_2));
+            Feet first_value = new Feet();
+            object second_value = new object();
+            Assert.IsFalse(first_value.Equals(second_value));
         }
 
         [Test]
         public void Provided_Equal_Value_Shuold_Return_True()
         {
-            Feet value_1 = new Feet();
-            value_1.feet = 4.6;
-            Assert.IsTrue(value_1.Equals(value_1));            
+            Feet first_value = new Feet();
+            first_value.feet = 4.6;
+            Assert.IsTrue(first_value.Equals(first_value));            
         }
 
         [Test]
         public void Provided_0Inche_And_0Inche_Should_Return_True()
         {
-            Inches value_1 = new Inches(0.0);
-            Inches value_2 = new Inches(0.0);
-            Assert.IsTrue(value_1.inches.Equals(value_2.inches));
+            Inches first_value = new Inches(0.0);
+            Inches second_value = new Inches(0.0);
+            Assert.IsTrue(first_value.inches.Equals(second_value.inches));
         }
 
         [Test]
@@ -98,192 +94,157 @@ namespace QuantityMeasurementsTests
         [Test]
         public void Reference_Check_Test_For_Inch()
         {
-            Inches value_1 = new Inches();
-            Inches value_2 = new Inches();
-            Assert.IsFalse(value_1.Equals(value_2));
+            Inches first_value = new Inches();
+            Inches second_value = new Inches();
+            Assert.IsFalse(first_value.Equals(second_value));
         }
        
         [Test]
         public void Provided_Equal_Inch_Value_Shuold_Return_True()
         {
-            Inches value_1 = new Inches();
-            value_1.inches = 4.6;
-            Assert.IsTrue(value_1.Equals(value_1));
+            Inches value = new Inches();
+            value.inches = 4.6;
+            Assert.IsTrue(value.Equals(value));
        }
         [Test]
         public void Provided_Improper_Inches_Type_Object_Should_Return_False()
         {
-            Inches value_1 = new Inches();
-            object value_2 = new object();
-            Assert.IsFalse(value_1.Equals(value_2));
+            Inches first_value = new Inches();
+            object second_value = new object();
+            Assert.IsFalse(first_value.Equals(second_value));
         }      
         
         [Test]
-        public void Provided_3Feet_And_1Yard_After_Compare_Should_Return_True()
-        {          
-            if(UnitConvertor<Length>(3,FEET) == UnitConvertor<Length>(1,YARDS))
-            {
-                result = true;
-            }
+        public void Provided_ThreeFeet_And_OneYard_After_Compare_Should_Return_True()
+        {                     
+            result = UnitConvertor<Length>(3, FEET) == UnitConvertor<Length>(1, YARDS);
             Assert.IsTrue(result);
         }
 
         [Test]
-        public void Provided_1Feet_And_1Yard_After_Compare_Should_Return_False()
-        {          
-            if(UnitConvertor<Length>(1,FEET) == UnitConvertor<Length>(1,YARDS))
-            {
-                result = true;
-            }
+        public void Provided_OneFeet_And_OneYard_After_Compare_Should_Return_False()
+        {                  
+            result = UnitConvertor<Length>(1, FEET) == UnitConvertor<Length>(1, YARDS);
             Assert.IsFalse(result);
         }
 
         [Test]
-        public void Provided_1Inche_And_1Yard_When_Compare_Should_Return_False()
-        {            
-            if (UnitConvertor<Length>(1,INCHES) == UnitConvertor<Length>(1,YARDS))
-            {
-                result = true;
-            }
+        public void Provided_OneInche_And_OneYard_When_Compare_Should_Return_False()
+        {                      
+            result = UnitConvertor<Length>(1, INCHES) == UnitConvertor<Length>(1, YARDS);
             Assert.IsFalse(result);
         }
 
         [Test]
-        public void Provided_1Yard_And_36Inches_When_Compare_Should_Return_True()
-        {        
-            if (UnitConvertor<Length>(1,YARDS) == UnitConvertor<Length>(36,INCHES)) {
-                result = true;
-            }           
+        public void Provided_OneYard_And_ThirtySixInches_When_Compare_Should_Return_True()
+        {                  
+            result = UnitConvertor<Length>(1, YARDS) == UnitConvertor<Length>(36, INCHES);
             Assert.IsTrue(result);                   
         }
 
         [Test]
-        public void Provided_36Inches_And_1Yard_When_Compare_Should_Return_True()
-        {           
-            if (UnitConvertor<Length>(36,INCHES) == UnitConvertor<Length>(1,YARDS))
-            {
-                result = true;
-            }
+        public void Provided_ThirtySixInches_And_OneYard_When_Compare_Should_Return_True()
+        {                       
+            result = UnitConvertor<Length>(36, INCHES) == UnitConvertor<Length>(1, YARDS);
             Assert.IsTrue(result);
         }
 
         [Test]
-        public void Provided_1Yard_And_3Feet_When_Compare_Should_Return_True()
-        {            
-            if (UnitConvertor<Length>(1,YARDS) == UnitConvertor<Length>(3,FEET))
-            {
-                result = true;
-            }
+        public void Provided_OneYard_And_ThreeFeet_When_Compare_Should_Return_True()
+        {                     
+            result = UnitConvertor<Length>(1, YARDS) == UnitConvertor<Length>(3, FEET);
             Assert.IsTrue(result);
         }
 
         [Test]
-        public void Provided_2Inch_And_5CM_When_Compare_Should_Return_True()
-        {
-            if (UnitConvertor<Length>(2,INCHES) == UnitConvertor<Length>(5,CM))
-            {
-                result = true;
-            }
+        public void Provided_TwoInch_And_FiveCM_When_Compare_Should_Return_True()
+        {         
+            result = UnitConvertor<Length>(2, INCHES) == UnitConvertor<Length>(5, CM);
             Assert.IsTrue(result);
         }
 
         [Test]
-        public void Provided_2Inch_And_2Inch_After_Additon_Should_Return_4Inch()
+        public void Provided_TwoInch_And_TwoInch_After_Additon_Should_Return_FoueInch()
         {
             result = Addition(UnitConvertor<Length>(2,INCHES), UnitConvertor<Length>(2,INCHES), UnitConvertor<Length>(4,INCHES));
             Assert.IsTrue(result);
         }
 
         [Test]
-        public void Provided_1Feet_And_2Inch_After_Additon_Should_Return_14Inch()
+        public void Provided_OneFeet_And_TwoInch_After_Additon_Should_Return_ForteenInch()
         {
             result = Addition(UnitConvertor<Length>(1,FEET), UnitConvertor<Length>(2,INCHES), UnitConvertor<Length>(14,INCHES));
             Assert.IsTrue(result);
         }
 
         [Test]
-        public void Provided_1Feet_And_1Feet_After_Additon_Should_Return_24Inch()
+        public void Provided_OneFeet_And_OneFeet_After_Additon_Should_Return_TwntyFourInch()
         {
             result = Addition(UnitConvertor<Length>(1, FEET), UnitConvertor<Length>(1,FEET), UnitConvertor<Length>(24,INCHES));
             Assert.IsTrue(result);
         }
 
         [Test]
-        public void Provided_2Inch_And_2n5CM_After_Additon_Should_Return_3Inch()
+        public void Provided_TwoInch_And_TwoAndHalfCM_After_Additon_Should_Return_ThreeInch()
         {
             result = Addition(UnitConvertor<Length>(2,INCHES), UnitConvertor<Length>(2.5,CM), UnitConvertor<Length>(3,INCHES));
             Assert.IsTrue(result);
         }
 
         [Test]
-        public void Provided_1Gallon_And_3point78_Liter_After_Compare_Shuould_Return_True()
-        {
-            if (UnitConvertor<Volume>(1,GALLON) == UnitConvertor<Volume>(3.78,LITRE))
-            {
-                result = true;
-            }
+        public void Provided_OneGallon_And_ThreePonitSevenEight_Liter_After_Compare_Shuould_Return_True()
+        {            
+            result = UnitConvertor<Volume>(1, GALLON) == UnitConvertor<Volume>(3.78, LITRE);
             Assert.IsTrue(result);
         }
 
         [Test]
-        public void Provided_1litre_And_100MiliLiter_After_Compare_Shuould_Return_True()
-        {
-            if (UnitConvertor<Volume>(1,LITRE) == UnitConvertor<Volume>(1000,ML))
-            {
-                result = true;
-            }
+        public void Provided_Onelitre_And_ThoughsandMiliLiter_After_Compare_Shuould_Return_True()
+        {           
+            result = (UnitConvertor<Volume>(1, LITRE) == UnitConvertor<Volume>(1000, ML));
             Assert.IsTrue(result);
         }
 
         [Test]
-        public void Provided_1Gallon_And_3o78_litre_After_Additon_Should_Return_7o57litre()
+        public void Provided_OneGallon_And_ThreePointSeventyEight_litre_After_Additon_Should_Return_SevenPointFiftySix_litre()
         {
-            result = Convertor.Addition(UnitConvertor<Volume>(1,GALLON), UnitConvertor<Volume>(3.78,LITRE), UnitConvertor<Volume>(7.56,LITRE));
+            result = Addition(UnitConvertor<Volume>(1,GALLON), UnitConvertor<Volume>(3.78,LITRE), UnitConvertor<Volume>(7.56,LITRE));
             Assert.IsTrue(result);
         }
 
         [Test]
-        public void Provided_1Lire_And_1000mllitre_After_Additon_Should_Return_2litre()
+        public void Provided_OneLire_And_Thousandmllitre_After_Additon_Should_Return_Twolitre()
         {
-            result = Convertor.Addition(UnitConvertor<Volume>(1, LITRE), UnitConvertor<Volume>(1000,ML),UnitConvertor<Volume>(2,LITRE));
+            result = Addition(UnitConvertor<Volume>(1, LITRE), UnitConvertor<Volume>(1000,ML),UnitConvertor<Volume>(2,LITRE));
             Assert.IsTrue(result);
         }
 
         [Test]
-        public void Provided_1Kg_And_1000Grams_After_Compare_Shuould_Return_True()
-        {
-            if (UnitConvertor<Weight>(1,KILO) == UnitConvertor<Weight>(1000,GRAM))
-            {
-                result = true;
-            }
+        public void Provided_OneKg_And_ThaousandGrams_After_Compare_Shuould_Return_True()
+        {           
+            result = UnitConvertor<Weight>(1, KILO) == UnitConvertor<Weight>(1000, GRAM);
             Assert.IsTrue(result);
         }
 
 
         [Test]
-        public void Provided_1Tones_And_1000Kilos_After_Compare_Shuould_Return_True()
-        {
-            if (UnitConvertor<Weight>(1,TONNE) == UnitConvertor<Weight>(1000,KILO))
-            {
-                result = true;
-            }
+        public void Provided_OneTones_And_ThousandKilos_After_Compare_Shuould_Return_True()
+        {            
+            result = UnitConvertor<Weight>(1, TONNE) == UnitConvertor<Weight>(1000, KILO);
             Assert.IsTrue(result);
         }
 
         [Test]
-        public void Provided_1Tones_And_1000Grams_After_Additon_Should_Return_1001Kilo()
+        public void Provided_OneTones_And_ThousandGrams_After_Additon_Should_Return_ThousandAndOne_Kilo()
         {
-            result = Convertor.Addition(UnitConvertor<Weight>(1,TONNE), UnitConvertor<Weight>(1000,GRAM), UnitConvertor<Weight>(1001,KILO));
+            result = Addition(UnitConvertor<Weight>(1,TONNE), UnitConvertor<Weight>(1000,GRAM), UnitConvertor<Weight>(1001,KILO));
             Assert.IsTrue(result);
         }
 
         [Test]
-        public void Provided_212F_And_100C_After_Compare_Shuould_Return_True()
-        {
-            if (UnitConvertor<Temprature>(212,FAHRENHEIT) == UnitConvertor<Temprature>(100,CELSIUS))
-            {
-                result = true;
-            }
+        public void Provided_TwoHundreadTwelveF_And_HundredC_After_Compare_Shuould_Return_True()
+        {           
+            result = UnitConvertor<Temprature>(212, FAHRENHEIT) == UnitConvertor<Temprature>(100, CELSIUS);
             Assert.IsTrue(result);
         }
       
