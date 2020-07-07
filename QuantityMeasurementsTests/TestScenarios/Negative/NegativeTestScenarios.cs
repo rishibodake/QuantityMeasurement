@@ -30,7 +30,7 @@ namespace QuantityMeasurementsTests
             }
             catch (CustomException e)
             {
-                Assert.AreEqual(CustomException.TypeOfException.CHECK_TYPE_OF_VALUE, e.typeOfException);
+                Assert.AreEqual(CustomException.TypeOfException.INVALID_UNIT_FOR_GIVEN_MESUREMENT, e.typeOfException);
             }           
         }
 
@@ -46,7 +46,7 @@ namespace QuantityMeasurementsTests
             }
             catch (CustomException e)
             {
-                Assert.AreEqual(CustomException.TypeOfException.INVALID_TYPE_OF_MEASURE_SYSTEM, e.typeOfException);
+                Assert.AreEqual(CustomException.TypeOfException.INVALID_MEASUREMENT_UNIT_MISMATCH, e.typeOfException);
             }
         }
     }

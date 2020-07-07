@@ -39,7 +39,7 @@ namespace QuantityMeasurements
                         case Length.INCHES:
                             return value;
                         default:
-                            throw new CustomException(CustomException.TypeOfException.CHECK_TYPE_OF_VALUE);
+                            throw new CustomException(CustomException.TypeOfException.INVALID_UNIT_FOR_GIVEN_MESUREMENT);
                     }
 
                 case "volume":
@@ -52,7 +52,7 @@ namespace QuantityMeasurements
                         case Units.Volume.ML:
                             return value / 1000;
                         default:
-                            throw new CustomException(CustomException.TypeOfException.CHECK_TYPE_OF_VALUE);
+                            throw new CustomException(CustomException.TypeOfException.INVALID_UNIT_FOR_GIVEN_MESUREMENT);
                     }
 
                 case "weight":
@@ -65,7 +65,7 @@ namespace QuantityMeasurements
                         case Units.Weight.TONNE:
                             return value * 1000;
                         default:
-                            throw new CustomException(CustomException.TypeOfException.CHECK_TYPE_OF_VALUE);
+                            throw new CustomException(CustomException.TypeOfException.INVALID_UNIT_FOR_GIVEN_MESUREMENT);
                     }
 
                 case "temperature":
@@ -76,11 +76,11 @@ namespace QuantityMeasurements
                         case Units.Temperature.CELSIUS:
                             return value;
                         default:
-                            throw new CustomException(CustomException.TypeOfException.CHECK_TYPE_OF_VALUE);
+                            throw new CustomException(CustomException.TypeOfException.INVALID_UNIT_FOR_GIVEN_MESUREMENT);
                     }
 
                 default:
-                    throw new CustomException(CustomException.TypeOfException.INVALID_TYPE_OF_MEASURE_SYSTEM);
+                    throw new CustomException(CustomException.TypeOfException.INVALID_MEASUREMENT_UNIT_MISMATCH);
             }
         }            
     }

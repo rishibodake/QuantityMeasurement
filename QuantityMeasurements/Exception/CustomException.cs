@@ -39,12 +39,12 @@ namespace QuantityMeasurements
             /// <summary>
             /// Improper Type Enum
             /// </summary>
-            CHECK_TYPE_OF_VALUE,
+            INVALID_UNIT_FOR_GIVEN_MESUREMENT,
 
             /// <summary>
             /// Invalid Measure Enum
             /// </summary>
-            INVALID_TYPE_OF_MEASURE_SYSTEM
+            INVALID_MEASUREMENT_UNIT_MISMATCH
         }
     }
 }
